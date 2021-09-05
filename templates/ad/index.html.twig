@@ -1,0 +1,111 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ad Controller{% endblock %}
+
+{% block body %}
+
+    <div class="wrapper">
+        <div class="content-wrapper">
+
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col">
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">Ad Information</h3>
+                            </div>
+                            <!-- /.card-header -->
+                            <div class="card-body">
+
+                                <div class="float-right mb-2">
+                                    <a href="{{ path("readDataFromApi") }}">
+                                    <button type="button" class="btn btn-primary">Download data from api</button>
+                                    </a>
+                                </div>
+
+                                <table class="table">
+                                    <thead>
+                                    <tr>
+                                        <th>Date</th>
+                                        <th>Url</th>
+                                        <th>Tag</th>
+                                        <th>Estimated revenue</th>
+                                        <th>Currency</th>
+                                        <th>Ad impressions</th>
+                                        <th>Ad eCPM</th>
+                                        <th>CLICKS</th>
+                                        <th>Ad CTR</th>
+                                        <th></th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    {% for ad in AdList %}
+
+                                        <tr>
+                                            <td>{{ ad.date|date("Y-m-d") }}</td>
+                                            <td>{{ ad.url }}</td>
+                                            <td>{{ ad.tag }}</td>
+                                            <td>{{ ad.estimatedRevenue }}</td>
+                                            <td>{{ ad.currency }}</td>
+                                            <td>{{ ad.adImpressions }}</td>
+                                            <td>{{ ad.adEcpm }}</td>
+                                            <td>{{ ad.clicks }}</td>
+                                            <td>{{ ad.adCTR }}</td>
+                                            <td>
+                                                <div class="container">
+                                                    <div class="row">
+                                                        <div class="col text-center">
+                                                            <a href="{{ path('displayAdById',{'id' : ad.id}) }}">
+                                                            <button type="button"
+                                                                    class=" btn btn-warning "> Show
+                                                            </button>
+                                                            </a>
+                                                        </div>
+
+                                                        <div class="col text-center">
+
+                                                            <button type="button"
+                                                                    class=" btn btn-outline-danger"
+                                                                    onclick="deleteData('{{ ad.id }}')">
+                                                                Delete
+                                                            </button>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    {% endfor %}
+                                    </tbody>
+                                </table>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+
+    <script>
+
+        function deleteData(id) {
+            $.ajax({
+                url: '/' + id,
+                method: 'DELETE',
+                success: function () {
+                    location.reload();
+                }
+            })
+        }
+    </script>
+{% endblock %}

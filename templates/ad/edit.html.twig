@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ad Edit{% endblock %}
+
+{% block body %}
+
+    <div class="wrapper">
+        <div class="content-wrapper">
+
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-12">
+
+                        {{ form_start(adForm, {'method': 'GET'}) }}
+                        <div class="card">
+                            <div class="card-header">
+                                <h5 class="modal-title">
+                                    Ad Edit</h5>
+                            </div>
+                            {{ include('ad/_adForm.html.twig') }}
+
+                            <div class="card-footer">
+                                <div class="float-right">
+                                    <a href="{{ path('displayAllAdFromDatabase') }}">
+                                        <button type="button"
+                                                class="btn btn-primary mr-2"
+                                                data-dismiss="modal">Zamknij
+                                        </button>
+                                    </a>
+                                </div>
+                            </div>
+
+                        </div>
+                        {{ form_end(adForm) }}
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+
+{% endblock %}

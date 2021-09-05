@@ -1,0 +1,120 @@
+<div class="col-sm-12 mb-2">
+
+    <div class="form-row">
+        <div class="col">
+            {{ form_label(adForm.createdAt,
+                'Created At'
+            ) }}
+            {{ form_widget(adForm.createdAt,
+                {'attr':{
+                    'class' : 'form-data col',
+                }}
+            ) }}
+        </div>
+
+        <div class="col">
+            {{ form_label(adForm.date,
+                'Data'
+            ) }}
+            {{ form_widget(adForm.date,
+                {'attr':{
+                    'class' : 'form-data col',
+                }}
+            ) }}
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="col">
+            {{ form_label(adForm.url.address,
+                'Url'
+            ) }}
+            {{ form_widget(adForm.url.address,
+                {'attr':{
+                    'class' : 'col',
+                }}
+            ) }}
+        </div>
+
+        <div class="col">
+            {{ form_label(adForm.tag.name,
+                'Tag'
+            ) }}
+            {{ form_widget(adForm.tag.name,
+                {'attr':{
+                    'class' : 'col',
+                }}
+            ) }}
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="col">
+            {{ form_label(adForm.estimatedRevenue,
+                'Estimated revenue'
+            ) }}
+            {{ form_widget(adForm.estimatedRevenue,
+                {'attr':{
+                    'class' : 'col',
+                }}
+            ) }}
+        </div>
+
+        <div class="col">
+            {{ form_label(adForm.currency,
+                'Currency'
+            ) }}
+            {{ form_widget(adForm.currency,
+                {'attr':{
+                    'class' : 'col',
+                }}
+            ) }}
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        {{ form_label(adForm.adImpressions,
+            'Ad Impressions'
+        ) }}
+        {{ form_widget(adForm.adImpressions,
+            {'attr':{
+                'class' : 'col',
+            }}
+        ) }}
+    </div>
+
+    <div class="form-group">
+        {{ form_label(adForm.adEcpm,
+            'Ad eCPM'
+        ) }}
+        {{ form_widget(adForm.adEcpm,
+            {'attr':{
+                'class' : 'col',
+            }}
+        ) }}
+    </div>
+
+    <div class="form-group">
+        {{ form_label(adForm.clicks,
+            'Clicks'
+        ) }}
+        {{ form_widget(adForm.clicks,
+            {'attr':{
+                'class' : 'col',
+            }}
+        ) }}
+    </div>
+
+    <div class="form-group">
+        {{ form_label(adForm.adCTR,
+            'Ad CTR'
+        ) }}
+        {{ form_widget(adForm.adCTR,
+            {'attr':{
+                'class' : 'col',
+            }}
+        ) }}
+    </div>
+
+</div>
